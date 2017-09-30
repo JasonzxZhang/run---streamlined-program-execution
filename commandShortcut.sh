@@ -1,5 +1,6 @@
 #!/bin/bash
-# This intends to run
+# This intends to compile & execute java, python or cpp with
+# run command
 
 compilerOptions() {
 	printf "[compiler]\t-c\tc++\n"
@@ -10,18 +11,19 @@ compilerOptions() {
 
 runC() {
 	testPrint
-	g++ fileFullName
+	gcc $fileInputName -o $fileBaseName
+	./$fileBaseName
 }
 
 runJava() {
 	testPrint
-	javac fileName
-	java fileName
+	javac $fileInputName
+	java $fileBaseName
 }
 
 runPython() {
 	testPrint
-	python $fileFullName
+	python $fileInputName
 }
 
 testPrint() {
@@ -34,7 +36,7 @@ testPrint() {
 main() {
 	if [ -e $fileInputName ]
 		then
-		    filePath=$(dirname "$fileInputName")
+		    filePath=$(dirname "$fileInputName./")
 			fileFullName=$(basename "$fileInputName")
 			fileBaseName="${fileFullName%.*}"
 			fileExt="${fileFullName##*.}"
