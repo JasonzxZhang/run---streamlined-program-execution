@@ -11,7 +11,7 @@ compilerOptions() {
 
 runC() {
 	testPrint
-	gcc $fileInputName -o $fileBaseName
+	g++ $fileInputName -o $fileBaseName
 	./$fileBaseName
 }
 

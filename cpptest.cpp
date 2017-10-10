@@ -1,6 +1,7 @@
 #include <iostream>
-
-int main() {
-    std:: cout << "Success --- CPP program has been compiled and ran!";
-    return 0;
+ 
+int main()
+{
+  std::cout << "Success --- CPP program has been compiled and ran!" << std::endl;
+  return 0;
 }
