@@ -3,10 +3,6 @@
 # run command
 # Shall be installed under /usr/loca/bin
 
-VERSION=1.1.0
-AUTHOR="Jason Zhang"
-DATE="2017-11-19"
-
 compilerOptions() {
 	printf "[compiler]\t-c\tc++\n"
 	printf "\t\t-j\tjava\n"
@@ -40,7 +36,6 @@ main() {
 	if [ -e $fileInputName ]
 		# FIXME - add verbose mode there
 		then
-			# Extract targeted file info 
 		    filePath=$(dirname "$fileInputName./")
 			fileFullName=$(basename "$fileInputName")
 			fileBaseName="${fileFullName%.*}"
