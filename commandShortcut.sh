@@ -3,7 +3,7 @@
 # run command
 # Shall be installed under /usr/loca/bin
 
-VERSION=1.1.0
+VERSION=1.0.0
 AUTHOR="Jason Zhang"
 DATE="2017-11-19"
 
@@ -56,7 +56,7 @@ main() {
 						runPython
 						;;
 				*)
-						echo "ERROR! Invalid input"
+						echo "ERROR! Invalid/Incompatible file input"
 						echo $fileInputName
 						;;
 			esac
