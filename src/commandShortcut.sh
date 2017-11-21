@@ -3,6 +3,10 @@
 # run command
 # Shall be installed under /usr/loca/bin
 
+VERSION=1.0.0
+AUTHOR="Jason Zhang"
+DATE="2017-11-19"
+
 compilerOptions() {
 	printf "[compiler]\t-c\tc++\n"
 	printf "\t\t-j\tjava\n"
@@ -36,6 +40,7 @@ main() {
 	if [ -e $fileInputName ]
 		# FIXME - add verbose mode there
 		then
+			# Extract targeted file info 
 		    filePath=$(dirname "$fileInputName./")
 			fileFullName=$(basename "$fileInputName")
 			fileBaseName="${fileFullName%.*}"
@@ -51,7 +56,7 @@ main() {
 						runPython
 						;;
 				*)
-						echo "ERROR! Invalid input"
+						echo "ERROR! Invalid/Incompatible file input"
 						echo $fileInputName
 						;;
 			esac
@@ -66,9 +71,8 @@ if [ -z "$1" ]
 	then
 	    echo "No arguments supplied"
 	    echo "============================================="
-	    echo "run [program name]"
+	    echo "run <program name>"
 	    echo "---------------------------------------------"
-	    compilerOptions
 	else
 		fileInputName=$1
 		main
