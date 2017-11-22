@@ -1,8 +1,9 @@
 #!/bin/bash
 
-new_version="1.0.0"
-config_path="~/.runconfig"
-bash_profile_path="~/.bash_profile"
+new_version='1.0.0'
+config_path='~/.runconfig'
+bash_profile_path='~/.bash_profile'
+run_path='/usr/local/bin/run'
 
 # Compile to UNIX executable and move to /usr/local/lbin
 install_RUN() {
@@ -18,13 +19,13 @@ install_RUN() {
 
 update_config() {
 	current_time=$(date +"%r %a %d %h %y")
-	touch config_path
-	echo "version='$new_version'" > ~/.runconfig
-	echo "last_time_updated=$current_time" > ~/.runconfig
+	touch .runconfig_tmp
+	echo "version='$new_version'" >> .runconfig_tmp
+	echo "last_time_updated=$current_time" >> .runconfig_tmp
 }
 
-if [ -e '/usr/local/bin/run' ]; then
-	if [ -e '~/.runconfig' ]; then
+if [ -e "$run_path" ]; then
+	if [ -e "config_path" ]; then
 	# Current install status and version check
 		source "~/.runconfig"
 		if [ "$version" == "$new_version" ]; then
