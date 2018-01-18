@@ -13,13 +13,13 @@ install_RUN() {
 	cp run '/usr/local/bin/'
 
 	# Add "run" alias to bash_profile
-	# echo "alias run='/usr/local/bin/run'" >> bash_profile_path
-	# source bash_profile_path
+	echo "alias run='/usr/local/bin/run'" >> bash_profile_path
+	source bash_profile_path
 }
 
 # Check if "run" is installed correctly
 is_install_success() {
-	echo
+	echo "Install Successful!"
 }
 
 # Current install status and version check
