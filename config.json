@@ -1,0 +1,27 @@
+{
+	"version": "2.0.0",
+	"author": "Jason Zhang",
+	"language": {
+		"python": {
+			"compile_cmd": "",
+			"exec_cmd": "python $FILEPATH",
+			"extensions": [
+				"py", "py3", "pyc", "pyo", "pyw", "pyx", "pyd", "pyh"
+			]
+		},
+		"cpp": {
+			"compile_cmd": "g++ $FILEPATH -o $DIRNAME$BASENAME",
+			"exec_cmd": "./$DIRNAME$BASENAME",
+			"extensions": [
+				"cpp", "cc"
+			]
+		},
+		"java": {
+			"compile_cmd": "javac $FILEPATH",
+			"exec_cmd": "java $DIRNAME$BASENAME",
+			"extensions": [
+				"java"
+			]
+		}
+	}
+}
