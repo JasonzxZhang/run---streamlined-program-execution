@@ -12,10 +12,10 @@ parser.add_argument("-v", "--verbose", help="Detail logging information", action
 # parser.add_argument("-p", "--program", help="Program to be executed")
 args = parser.parse_args()
 input_file_path = args.FILE
-file_basename = os.path.basename(input_file_path)
 file_full_path = os.path.abspath(input_file_path)
 file_dirname, file_name = os.path.split(file_full_path)
 # os.path.dirname
+file_basename = os.path.splitext(file_name)[0]
 file_extension = re.findall(r'\.([^.]+)', file_name)[0]
 
 print(input_file_path)
@@ -26,8 +26,8 @@ print(file_dirname)
 print(file_extension)
 
 def init():
-	# run()
-	print()
+	run()
+	# print()
 
 
 def select_compiler(ext=None):

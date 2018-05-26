@@ -18,7 +18,7 @@
 		},
 		"java": {
 			"compile_cmd": "javac $FILEPATH",
-			"exec_cmd": "java $DIRNAME$BASENAME",
+			"exec_cmd": "java -cp $DIRNAME $BASENAME",
 			"extensions": [
 				"java"
 			]
