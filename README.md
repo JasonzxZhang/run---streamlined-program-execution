@@ -6,8 +6,9 @@ Currently supports
 - Python
 
 e.g.
-'''
+
+```
 run helloworld.cpp
 run folder/helloworld.java
-'''
+```
 
