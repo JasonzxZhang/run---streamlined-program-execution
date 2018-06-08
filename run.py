@@ -9,7 +9,7 @@ program_description = "A command line tool to execute several OOLs. See FIXME fo
 parser = argparse.ArgumentParser(description=program_description)
 parser.add_argument("FILE", help="Program to be executed")
 parser.add_argument("-v", "--verbose", help="Detail logging information",
-					 action="store_true", default=False, metavar=('VERBOSE'))
+					 action="store_true", default=False) # metavar=('VERBOSE')
 # parser.add_argument("-p", "--program", help="Program to be executed")
 args = parser.parse_args()
 input_file_path = args.FILE
