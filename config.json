@@ -10,8 +10,8 @@
 			]
 		},
 		"cpp": {
-			"compile_cmd": "g++ $FILEPATH -o $DIRNAME$BASENAME",
-			"exec_cmd": "./$DIRNAME$BASENAME",
+			"compile_cmd": "g++ $FILEPATH -o $BASEDIR",
+			"exec_cmd": "$BASEDIR",
 			"extensions": [
 				"cpp", "cc"
 			]

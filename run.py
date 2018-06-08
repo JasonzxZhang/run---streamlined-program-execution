@@ -8,22 +8,23 @@ import json
 program_description = "A command line tool to execute several OOLs. See FIXME for detail."
 parser = argparse.ArgumentParser(description=program_description)
 parser.add_argument("FILE", help="Program to be executed")
-parser.add_argument("-v", "--verbose", help="Detail logging information", action="store_true", default=False)
+parser.add_argument("-v", "--verbose", help="Detail logging information",
+					 action="store_true", default=False, metavar=('VERBOSE'))
 # parser.add_argument("-p", "--program", help="Program to be executed")
 args = parser.parse_args()
 input_file_path = args.FILE
 file_full_path = os.path.abspath(input_file_path)
 file_dirname, file_name = os.path.split(file_full_path)
-# os.path.dirname
 file_basename = os.path.splitext(file_name)[0]
+basename_path = file_dirname + "/" + file_basename + "_exc"
 file_extension = re.findall(r'\.([^.]+)', file_name)[0]
 
-print(input_file_path)
-print(file_name)
-print(file_basename)
-print(file_full_path)
-print(file_dirname)
-print(file_extension)
+# print(input_file_path)
+# print(file_name)
+# print(file_basename)
+# print(file_full_path)
+# print(file_dirname)
+# print(file_extension)
 
 def init():
 	run()
@@ -49,12 +50,16 @@ def select_compiler(ext=None):
 def run():
 	(l, compile_cmd, exec_cmd) = select_compiler(file_extension)
 	if compile_cmd != "":
+		compile_cmd = compile_cmd.replace("$DIRNAME", file_dirname)
 		compile_cmd = compile_cmd.replace("$FILEPATH", file_full_path)
+		compile_cmd = compile_cmd.replace("$BASENAME", file_basename)
+		compile_cmd = compile_cmd.replace("$BASEDIR", basename_path)
 		print("Compile: ", compile_cmd)
 		os.system(compile_cmd)
 	exec_cmd = exec_cmd.replace("$DIRNAME", file_dirname)
 	exec_cmd = exec_cmd.replace("$FILEPATH", file_full_path)
 	exec_cmd = exec_cmd.replace("$BASENAME", file_basename)
+	exec_cmd = exec_cmd.replace("$BASEDIR", basename_path)
 	print("Exec: ", exec_cmd)
 	os.system(exec_cmd)
 
@@ -72,5 +77,3 @@ def verbose_mode(input, basename, dirname, extension):
 
 if __name__ == "__main__":
 	init()
-
-# python3 run.py src/subfolder/javatest.java 
